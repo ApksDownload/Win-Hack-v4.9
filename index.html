@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberAPK | Premium Downloads</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00a8ff;
+            --secondary: #0097e6;
+            --dark: #0c0e1c;
+            --darker: #070a15;
+            --light: #f5f6fa;
+            --glow: 0 0 10px rgba(0, 168, 255, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 168, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 168, 255, 0.1) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cyber-border {
+            position: relative;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: var(--glow);
+            overflow: hidden;
+            animation: borderPulse 4s infinite;
+        }
+        
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent 45%,
+                var(--primary) 50%,
+                transparent 55%
+            );
+            transform: rotate(45deg);
+            opacity: 0.3;
+            animation: scan 8s linear infinite;
+            pointer-events: none;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: var(--glow);
+            margin-bottom: 1rem;
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: rotate(15deg) scale(1.05);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary), #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 168, 255, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .apk-info {
+            margin-bottom: 2rem;
+        }
+        
+        .apk-name {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .apk-name i {
+            margin-right: 10px;
+        }
+        
+        .apk-about {
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .version {
+            display: inline-block;
+            background-color: rgba(0, 168, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--primary);
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent 45%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 55%
+            );
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+            animation: scan 1.5s linear infinite;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 168, 255, 0.6);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 168, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.3);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .binary-code {
+            position: absolute;
+            color: rgba(0, 168, 255, 0.1);
+            font-size: 0.7rem;
+            user-select: none;
+            z-index: -1;
+        }
+        
+        .binary-1 {
+            top: 10%;
+            left: 5%;
+            animation: float 15s infinite linear;
+        }
+        
+        .binary-2 {
+            bottom: 15%;
+            right: 8%;
+            animation: float 18s infinite linear reverse;
+        }
+        
+        .binary-3 {
+            top: 40%;
+            right: 15%;
+            animation: float 12s infinite linear;
+        }
+        
+        @keyframes scan {
+            0% {
+                transform: translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateY(100%) rotate(45deg);
+            }
+        }
+        
+        @keyframes borderPulse {
+            0% {
+                box-shadow: 0 0 10px rgba(0, 168, 255, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(0, 168, 255, 0.9);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(0, 168, 255, 0.7);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(0) translateX(20px);
+            }
+            75% {
+                transform: translateY(20px) translateX(10px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+        
+        .loading-bar {
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--primary);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .cyber-border {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-bar" id="loadingBar"></div>
+    
+    <div class="binary-code binary-1" id="binary1">01010100 01101000 01100101 00100000 01010001 01110101 01101001 01100011 01101011 00100000 01000010 01110010 01101111 01110111 01101110 00100000 01000110 01101111 01111000 00100000 01001010 01110101 01101101 01110000 01110011 00100000 01001111 01110110 01100101 01110010 00100000 01010100 01101000 01100101 00100000 01001100 01100001 01111010 01111001 00100000 01000100 01101111 01100111</div>
+    <div class="binary-code binary-2" id="binary2">01001000 01100001 01100011 01101011 01101001 01101110 01100111 00100000 01010100 01101000 01100101 00100000 01010000 01101100 01100001 01101110 01100101 01110100 00100000 01010111 01101001 01110100 01101000 00100000 01000011 01111001 01100010 01100101 01110010 00100000 01010100 01100101 01100011 01101000 01101110 01101111 01101100 01101111 01100111 01111001</div>
+    <div class="binary-code binary-3" id="binary3">01001001 01101110 01110011 01110100 01100001 01101100 01101100 00100000 01010100 01101000 01100101 00100000 01000001 01010000 01001011 00100000 01000001 01101110 01100100 00100000 01001010 01101111 01101001 01101110 00100000 01010100 01101000 01100101 00100000 01010100 01100101 01101100 01100101 01100111 01110010 01100001 01101101 00100000 01000011 01101000 01100001 01101110 01101110 01100101 01101100</div>
+    
+    <div class="container">
+        <div class="cyber-border">
+            <div class="header">
+                <img src="logo.png" alt="CyberAPK Logo" class="logo">
+                <h1>CYBER<span style="color: white;">APK</span></h1>
+                <p class="tagline">Premium Hacking Tools & Utilities</p>
+            </div>
+            
+            <div class="apk-info">
+                <h2 class="apk-name"><i class="fas fa-cube"></i> Ultimate Hacker Tool v3.7</h2>
+                <span class="version">Version 3.7 | 15.2 MB</span>
+                <p class="apk-about">
+                    This powerful APK provides advanced hacking tools for penetration testing, 
+                    network analysis, and security auditing. With a sleek interface and powerful 
+                    features, it's the ultimate tool for ethical hackers and security researchers.
+                </p>
+            </div>
+            
+            <div class="buttons">
+                <button class="btn btn-primary" id="downloadBtn">
+                    <i class="fas fa-download"></i> Download APK
+                </button>
+                <button class="btn btn-secondary" id="telegramBtn">
+                    <i class="fab fa-telegram"></i> Join Telegram
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 CyberAPK | For educational purposes only</p>
+        </div>
+    </div>
+    
+    <script>
+        // Binary code animation
+        const binaryCodes = [
+            "01010100 01101000 01100101 00100000 01010001 01110101 01101001 01100011 01101011 00100000 01000010 01110010 01101111 01110111 01101110 00100000 01000110 01101111 01111000 00100000 01001010 01110101 01101101 01110000 01110011 00100000 01001111 01110110 01100101 01110010 00100000 01010100 01101000 01100101 00100000 01001100 01100001 01111010 01111001 00100000 01000100 01101111 01100111",
+            "01001000 01100001 01100011 01101011 01101001 01101110 01100111 00100000 01010100 01101000 01100101 00100000 01010000 01101100 01100001 01101110 01100101 01110100 00100000 01010111 01101001 01110100 01101000 00100000 01000011 01111001 01100010 01100101 01110010 00100000 01010100 01100101 01100011 01101000 01101110 01101111 01101100 01101111 01100111 01111001",
+            "01001001 01101110 01110011 01110100 01100001 01101100 01101100 00100000 01010100 01101000 01100101 00100000 01000001 01010000 01001011 00100000 01000001 01101110 01100100 00100000 01001010 01101111 01101001 01101110 00100000 01010100 01101000 01100101 00100000 01010100 01100101 01101100 01100101 01100111 01110010 01100001 01101101 00100000 01000011 01101000 01100001 01101110 01101110 01100101 01101100",
+            "01000011 01111001 01100010 01100101 01110010 00100000 01010011 01100101 01100011 01110101 01110010 01101001 01110100 01111001 00100000 01000001 01010000 01001011 00100000 01000110 01101111 01110010 00100000 01000101 01110100 01101000 01101001 01100011 01100001 01101100 00100000 01001000 01100001 01100011 01101011 01101001 01101110 01100111 00100000 01010000 01110101 01110010 01110000 01101111 01110011 01100101 01110011",
+            "01010000 01110010 01100101 01101101 01101001 01110101 01101101 00100000 01010100 01101111 01101111 01101100 01110011 00100000 01000110 01101111 01110010 00100000 01010000 01110010 01101111 01100110 01100101 01110011 01110011 01101001 01101111 01101110 01100001 01101100 01110011 00100000 01000001 01101110 01100100 00100000 01001000 01101111 01100010 01100010 01111001 01101001 01110011 01110100 01110011"
+        ];
+        
+        function animateBinary() {
+            const binary1 = document.getElementById('binary1');
+            const binary2 = document.getElementById('binary2');
+            const binary3 = document.getElementById('binary3');
+            
+            setInterval(() => {
+                binary1.textContent = binaryCodes[Math.floor(Math.random() * binaryCodes.length)];
+                binary2.textContent = binaryCodes[Math.floor(Math.random() * binaryCodes.length)];
+                binary3.textContent = binaryCodes[Math.floor(Math.random() * binaryCodes.length)];
+            }, 3000);
+        }
+        
+        // Download button functionality
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const loadingBar = document.getElementById('loadingBar');
+            loadingBar.style.width = '0';
+            
+            // Show loading animation
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // Replace with your actual APK download link
+                    window.location.href = 'your-apk-file.apk';
+                } else {
+                    width += Math.random() * 10;
+                    loadingBar.style.width = width + '%';
+                }
+            }, 100);
+            
+            // Button animation
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-download"></i> Download APK';
+            }, 3000);
+        });
+        
+        // Telegram button functionality
+        document.getElementById('telegramBtn').addEventListener('click', function() {
+            // Open Telegram link in new tab
+            window.open('https://telegram.dog/EarningScripter1', '_blank');
+            
+            // Button animation
+            this.innerHTML = '<i class="fas fa-check"></i> Joined!';
+            setTimeout(() => {
+                this.innerHTML = '<i class="fab fa-telegram"></i> Join Telegram';
+            }, 2000);
+        });
+        
+        // Initialize animations when page loads
+        window.addEventListener('load', function() {
+            animateBinary();
+            
+            // Fade in effect
+            document.body.style.opacity = '0';
+            let opacity = 0;
+            const fadeIn = setInterval(() => {
+                if (opacity >= 1) {
+                    clearInterval(fadeIn);
+                } else {
+                    opacity += 0.05;
+                    document.body.style.opacity = opacity;
+                }
+            }, 50);
+        });
+    </script>
+</body>
+</html>
